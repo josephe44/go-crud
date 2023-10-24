@@ -17,12 +17,12 @@ func main() {
 	r := gin.Default()
 
 	// Posts
-	r.POST("/posts", controllers.PostsCreate)
-	r.PUT("/posts/:id", controllers.UpdatePostByID)
-	r.DELETE("/posts/:id", controllers.DeletePostByID)
+	r.POST("/posts", middleware.AuthMiddleware, controllers.PostsCreate)
+	r.PUT("/posts/:id", middleware.AuthMiddleware, controllers.UpdatePostByID)
+	r.DELETE("/posts/:id", middleware.AuthMiddleware, controllers.DeletePostByID)
 
-	r.GET("/", controllers.GetPosts)
-	r.GET("/posts/:id", controllers.GetPostByID)
+	r.GET("/", middleware.AuthMiddleware, controllers.GetPosts)
+	r.GET("/posts/:id", middleware.AuthMiddleware, controllers.GetPostByID)
 
 	// Users
 	r.POST("/signup", controllers.Signup)
