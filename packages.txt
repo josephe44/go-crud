@@ -1,0 +1,12 @@
+--- Database ---
+https://api.elephantsql.com
+https://tableplus.com/
+
+
+--- Packages ---
+gin
+grom
+godotenv
+air
+bcrypt
+golang-jwt
