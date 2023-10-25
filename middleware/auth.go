@@ -65,6 +65,7 @@ func AuthMiddleware(c *gin.Context) {
 
 		// Attach to req
 		c.Set("user", cleanUser)
+		c.Set("userID", cleanUser.ID)
 
 		// Continue
 		c.Next()
